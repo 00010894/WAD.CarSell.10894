@@ -1,0 +1,28 @@
+﻿@page "/cars"
+@using CarSell.Blazor.Components.CarsTable
+@using CarSell.Blazor.Components
+
+<div class="row">
+
+    <div class="col-md-5">
+        <Sorting OnSortChanged="SortChanged" />
+    </div>
+
+    <div class="col-md-5">
+        <Searching OnSearchChanged="SearchChanged" />
+    </div>
+
+    <div class="col-md-2">
+        <a href="/createCar">Create Car</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <CarsTable Cars="CarList" OnDeleted="DeleteCar"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <Pagination PageParam="PageParameters" Spread="2" SelectedPage="SelectedPage" />
+    </div>
+</div>

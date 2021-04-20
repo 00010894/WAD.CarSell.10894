@@ -1,0 +1,61 @@
+﻿@if (Cars.Count > 0)
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                @*<th scope="col">Id</th>*@
+                <th scope="col">Car Name</th>
+                <th scope="col">Year Of Release</th>
+                <th scope="col">Price</th>
+                <th scope="col">Region</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Cars)
+            {
+            <tr>
+                <td>
+                    <img src="@car.Image" alt="car image" style="width:150px;" />
+                </td>
+                @*<td class="align-middle">
+            @car.Id
+        </td>*@
+                <td class="align-middle">
+                    @car.CarName
+                </td>
+                <td class="align-middle">
+                    @car.YearOfRelease
+                </td>
+                <td class="align-middle">
+                    $@car.Price
+                </td>
+                <td class="align-middle">
+                    @car.Region
+                </td>
+
+                <td class="align-middle">
+                    @car.Manufacturer.Name
+                </td>
+
+                <td class="align-middle">
+                    <button type="button" class="btn btn-info" @onclick="() => RedirectToUpdate(car.Id)">Update</button>
+                </td>
+                <td class="align-middle">
+                    <button type="button" class="btn btn-danger" @onclick="() => Delete(car.Id)">Delete</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <span>
+        Loading...
+    </span>
+}

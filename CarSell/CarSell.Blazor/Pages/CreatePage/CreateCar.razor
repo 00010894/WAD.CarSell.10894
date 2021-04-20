@@ -1,0 +1,64 @@
+﻿@page "/createCar"
+
+<h2>Create Form</h2>
+
+<EditForm Model="_car" OnValidSubmit="Create" class="card card-body bg-light mt-5">
+
+    <DataAnnotationsValidator />
+
+    <div class="form-group row">
+        <label for="CarName" class="col-md-2 col-form-label">Car Name:</label>
+        <div class="col-md-10">
+            <InputText id="CarName" class="form-control" @bind-Value="_car.CarName" />
+            <ValidationMessage For="@(() => _car.CarName)" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="Price" class="col-md-2 col-form-label">Price:</label>
+        <div class="col-md-10">
+            <InputNumber id="Price" class="form-control" @bind-Value="_car.Price" />
+            <ValidationMessage For="@(() => _car.Price)" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="imageurl" class="col-md-2 col-form-label">Image:</label>
+        <div class="col-md-10">
+            <InputText id="imageurl" class="form-control" @bind-Value="_car.Image" />
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="YearOfRelease" class="col-md-2 col-form-label">Yeara of release:</label>
+        <div class="col-md-10">
+            <InputNumber id="YearOfRelease" class="form-control" @bind-Value="_car.YearOfRelease" />
+            <ValidationMessage For="@(() => _car.YearOfRelease)" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="region" class="col-md-2 col-form-label">Region of Sale:</label>
+        <div class="col-md-10">
+            <InputText id="region" class="form-control" @bind-Value="_car.Region" />
+            <ValidationMessage For="@(() => _car.Region)" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="manufacturerid" class="col-md-2 col-form-label">Manufacturer:</label>
+        <div class="col-md-10">
+            <InputNumber id="manufacturerid" class="form-control" @bind-Value="_car.ManufacturerId" />
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button type="submit" class="btn btn-success">Create</button>
+        </div>
+    </div>
+</EditForm>
+<SuccessfulNotification @ref="_notification" />

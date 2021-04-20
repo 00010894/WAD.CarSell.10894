@@ -1,0 +1,20 @@
+﻿@page "/manufacturers"
+@using CarSell.Blazor.Components.ManufacturersTable
+@using CarSell.Blazor.Components
+
+<div class="row">
+
+    <div class="col-md-2">
+        <a href="/createManufacturer">Create Manufacturer</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <ManufacturerTable Manufacturers="manufacturerList" OnDeleted="DeleteManufacturer" />
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <Pagination PageParam="PageParameters" Spread="2" SelectedPage="SelectedPage" />
+    </div>
+</div>

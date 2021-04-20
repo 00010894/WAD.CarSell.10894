@@ -1,0 +1,30 @@
+﻿@page "/updateManufacturer/{id}"
+
+<h2>Update Form</h2>
+
+@if (_manufacturer != null)
+{
+
+    <EditForm Model="_manufacturer" OnValidSubmit="Update" class="card card-body bg-light mt-5">
+        <DataAnnotationsValidator />
+
+
+        <div class="form-group row">
+            <label for="name" class="col-md-2 col-form-label">Name:</label>
+            <div class="col-md-10">
+                <InputText id="name" class="form-control" @bind-Value="_manufacturer.Name" />
+                <ValidationMessage For="@(() => _manufacturer.Name)" />
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+
+    </EditForm>
+    <SuccessfulNotification @ref="_notification" />
+}
